@@ -3,7 +3,7 @@ from django import forms
 from tasks.models import Task, Tag
 
 
-class TaskCreateForm(forms.ModelForm):
+class TaskForm(forms.ModelForm):
     tags = forms.ModelMultipleChoiceField(
         required=False,
         queryset=Tag.objects.all(),
