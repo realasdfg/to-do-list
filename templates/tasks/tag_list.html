@@ -20,7 +20,7 @@
         <th scope="row">{{ tag.id }}</th>
         <td>{{ tag.name }}</td>
         <td><a href="{% url 'tasks:tag-update' tag.id %}" class="btn btn-secondary">Update</a></td>
-        <td><a href="#" class="btn btn-danger">Delete</a></td>
+        <td><a href="{% url 'tasks:tag-delete' tag.id %}" class="btn btn-danger">Delete</a></td>
       </tr>
     {% empty %}
       <th colspan="100%" scope="row" class="text-center">
