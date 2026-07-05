@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 
 from tasks.forms import TaskCompleteForm, TaskForm
-from tasks.models import Task
+from tasks.models import Task, Tag
 
 
 class IndexView(generic.ListView):
@@ -35,3 +35,7 @@ class TaskUpdateView(generic.UpdateView):
 class TaskDeleteView(generic.DeleteView):
     model = Task
     success_url = reverse_lazy("tasks:index")
+
+
+class TagListView(generic.ListView):
+    model = Tag
