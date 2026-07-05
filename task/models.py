@@ -1,3 +1,30 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
 
-# Create your models here.
+
+class Tag(models.Model):
+    name = models.CharField(max_length=50, unique=True)
+
+    class Meta:
+        ordering = ("name",)
+
+    def __str__(self):
+        return self.name
+
+
+class Task(models.Model):
+    content = models.TextField()
+    deadline = models.DateTimeField(null=True, blank=True)
+    is_done = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    tags = models.ManyToManyField(Tag, related_name="tasks", blank=True)
+
+    class Meta:
+        ordering = ("-deadline",)
+
+    def __str__(self):
+        return self.content
+
+
+class User(AbstractUser):
+    pass
