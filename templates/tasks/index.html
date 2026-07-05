@@ -14,7 +14,16 @@
               <span class="text-danger">Not done</span>
             {% endif %}
           </h4>
-          <a href="#" class="btn btn-success">Complete</a>
+          <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="task_id" value="{{ task.pk }}">
+            <input type="hidden" name="is_done" value="{{ task.is_done|yesno:'false,true' }}">
+            {% if task.is_done %}
+              <button type="submit" class="btn btn-secondary">Undo</button>
+            {% else %}
+              <button type="submit" class="btn btn-success">Complete</button>
+            {% endif %}
+          </form>
         </div>
         <p>
           Created: {{ task.created_at }}
