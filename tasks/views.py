@@ -45,3 +45,9 @@ class TagCreateView(generic.CreateView):
     model = Tag
     fields = ("name",)
     success_url = reverse_lazy("tasks:tag-list")
+
+
+class TagUpdateView(generic.UpdateView):
+    model = Tag
+    fields = ("name",)
+    success_url = reverse_lazy("tasks:tag-list")
