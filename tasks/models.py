@@ -20,7 +20,7 @@ class Task(models.Model):
     tags = models.ManyToManyField(Tag, related_name="tasks", blank=True)
 
     class Meta:
-        ordering = ("-deadline",)
+        ordering = ("-is_done", "-created_at",)
 
     def __str__(self):
         return self.content
