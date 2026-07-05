@@ -39,3 +39,9 @@ class TaskDeleteView(generic.DeleteView):
 
 class TagListView(generic.ListView):
     model = Tag
+
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    fields = ("name",)
+    success_url = reverse_lazy("tasks:tag-list")
