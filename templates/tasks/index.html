@@ -42,7 +42,7 @@
             -
           {% endfor %}
           <a href="{% url 'tasks:task-update' task.id %}" class="link-primary">Update</a>
-          <a href="#" class="link-primary">Delete</a>
+          <a href="{% url 'tasks:task-delete' task.id %}" class="link-primary">Delete</a>
         </p>
       </li>
     {% empty %}
